@@ -1,13 +1,9 @@
-![Header](header.png)
-
 <div align="center">
 
 # GyverLamp SSDP
 
 **Форк прошивки GyverLamp с SSDP для iOS-приложения GyLamp**
 
-[![License](https://img.shields.io/badge/license-MIT-2C2C2C?style=for-the-badge&labelColor=1E1E1E)](LICENSE)
-[![Arduino](https://img.shields.io/badge/arduino-ESP8266-2C2C2C?style=for-the-badge&logo=arduino&labelColor=1E1E1E)]()
 
 </div>
 
@@ -26,7 +22,7 @@
 
 <div align="center">
 
-| Компонент | Technology |
+| Компонент | Технология |
 |-----------|------------|
 | MCU | ESP8266 (NodeMCU v2 / LOLIN D1 R2 mini) |
 | Светодиоды | WS2812B 16x16 matrix (FastLED 3.2.9) |
@@ -38,7 +34,16 @@
 
 </div>
 
-## ■ Запуск
+## ■ Как это работает
+
+```
+1. При первом запуске WiFiManager открывает captive-portal AP, чтобы можно было ввести данные Wi-Fi с любого устройства.
+2. После подключения к сети ESP8266SSDPMod начинает анонсировать лампу по UPnP, и iOS-приложение GyLamp обнаруживает её автоматически.
+3. Прошивка управляет матрицей WS2812B 16x16 с 18 эффектами; названия эффектов, имя лампы и название модели задаются непосредственно в скетче.
+4. Кнопка на пине D7 позволяет сбросить Wi-Fi долгим нажатием; NTP синхронизирует время для эффектов рассвета/будильника.
+```
+
+## ■ Использование
 
 ```bash
 # Arduino IDE
@@ -56,6 +61,6 @@ LOLIN(WEMOS)_D1_R2_mini_flash_win.bat
 # оба вызывают вспомогательный скрипт flash_win.bat
 ```
 
-## ■ License
+## ■ Лицензия
 
 MIT © [pluttan](https://github.com/pluttan)
